@@ -1,0 +1,102 @@
+/* Custom Styles for Header */
+:root {
+  --shady-red: #8B0000;
+  --light-shady-red: #A52A2A;
+  --off-white: #F8F8F8;
+  --black: #000000;
+}
+
+.navbar {
+  transition: all 0.3s ease-in-out;
+  padding: 15px 0;
+  background-color: var(--shady-red);
+  margin-bottom: 0; /* Ensure no margin at the bottom */
+  border-bottom: none; /* Remove any border */
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--off-white);
+}
+
+.navbar-nav .nav-link {
+  font-weight: 600;
+  color: var(--off-white);
+  margin: 0 10px;
+  padding: 8px 0;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--off-white);
+  transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--off-white);
+}
+
+.navbar-nav .nav-link:hover::after {
+  width: 100%;
+}
+
+.navbar-scrolled {
+  background-color: var(--light-shady-red);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+}
+
+.navbar-scrolled .navbar-brand,
+.navbar-scrolled .navbar-nav .nav-link {
+  color: var(--off-white);
+}
+
+.navbar-toggler {
+  border: none;
+  padding: 0;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(248, 248, 248, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Button styling */
+.btn-primary {
+  background-color: var(--black);
+  border-color: var(--black);
+  color: var(--off-white);
+}
+
+.btn-primary:hover {
+  background-color: var(--off-white);
+  border-color: var(--black);
+  color: var(--black);
+}
+
+.btn-outline-primary {
+  border-color: var(--black);
+  color: var(--black);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--black);
+  color: var(--off-white);
+}
+
+#header {
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
+}

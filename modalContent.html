@@ -1,0 +1,100 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Content</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="modal" id="ftlModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Naročilo prevoza</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="transportForm" method="post" action="sendmail.php">
+          <h5>Vaši podatki:</h5>
+          <div class="form-group">
+            <label for="companyName">Podjetje:</label>
+            <input type="text" class="form-control" id="companyName" name="companyName" required>
+
+            <label for="companyEmail">Email:</label>
+            <input type="email" class="form-control" id="companyEmail" name="companyEmail" required>
+
+            <label for="companyPhone">Telefonska številka:</label>
+            <input type="tel" class="form-control" id="companyPhone" name="companyPhone" required>
+          </div>
+
+          <h5>PODATKI O NAKLADU:</h5>
+          <div class="form-group">
+            <label for="loadCountry">Država:</label>
+<select class="form-control" id="loadCountry" name="loadCountry" required></select>
+
+            <label for="loadCity">Mesto:</label>
+            <input type="text" class="form-control" id="loadCity" name="loadCity" required>
+            <label for="loadPostcode">Poštna številka:</label>
+            <input type="text" class="form-control" id="loadPostcode" name="loadPostcode" required>
+            <label for="loadPostcode">Število palet:</label>
+            <input type="text" class="form-control" id="loadPalletnr" name="loadPalletnr" required>
+            <label for="loadPostcode">Teža</label>
+            <input type="text" class="form-control" id="loadWeight" name="loadWeight" required>
+            <input type="checkbox" class="form-check-input" id="adrCheck" name="adr">
+  <label class="form-check-label" for="adrCheck">ADR</label>
+            <!-- ... Additional input fields ... -->
+          </div>
+          
+          <h5>PODATKI O RAZKLADU:</h5>
+          <div class="form-group">
+            <label for="unloadCountry">Država:</label>
+            <select class="form-control" id="unloadCountry" name="unloadCountry" required></select>
+            
+            <label for="unloadCity">Mesto:</label>
+            <input type="text" class="form-control" id="unloadCity" name="unloadCity" required>
+            
+            <label for="unloadPostcode">Poštna številka:</label>
+            <input type="text" class="form-control" id="unloadPostcode" name="unloadPostcode" required>
+            
+        
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Send</button>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+    $('#ftlModal').modal('show');
+
+    // Predefined list of countries for the dropdown
+    const countries = [
+      'Španija', 'Francija', 'Italija', 'Slovenija', 'Hrvaška',
+      'Avstrija', 'Nemčija', 'Češka', 'Slovaška', 'Poljska', 'Drugo'
+    ];
+
+    // Reference to the country select elements
+    let loadCountrySelect = $('#loadCountry');
+    let unloadCountrySelect = $('#unloadCountry');
+
+    // Append each country as an option to both select elements
+    countries.forEach(country => {
+      loadCountrySelect.append(new Option(country, country));
+      unloadCountrySelect.append(new Option(country, country));
+    });
+  });
+</script>
+
+</body>
+</html>
